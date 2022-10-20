@@ -1,7 +1,9 @@
-window.onload = function() {
+window.addEventListener("load", function() {
   //set up an event handler for the form submission
   let form = document.querySelector("form");
-  form.onsubmit = function(e) {
+
+  form.addEventListener("submit", function(e) {
+
     //get the value for each form input
     const person1Input = document.getElementById("person1Input").value;
     const person2Input = document.getElementById("person2Input").value;
@@ -25,5 +27,5 @@ window.onload = function() {
 
     //prevent default "refresh" action for the submit event
     e.preventDefault();
-  }
-}
+  });
+});
