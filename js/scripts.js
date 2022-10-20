@@ -41,6 +41,7 @@ window.addEventListener("load", function() {
   //new event listener for click even on resetbtn to reveal advertisement
   resetBtn.addEventListener("click", function() {
     alert("This is advertisement");
+    resetBtn.setAttribute("class", "hidden");
   });
 
   //new event listener for click event on reset button to reset form values by changing values to null
