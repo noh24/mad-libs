@@ -1,3 +1,11 @@
+//user interface logic
+
+//declare function advertisement that is called only once due to .removeEventListener()
+function advertisementAlert() {
+  alert("This is an ad");
+  document.querySelector("button#reset").removeEventListener("click", advertisementAlert);
+}
+
 window.addEventListener("load", function() {
   //set up an event handler for the form submission
   let form = document.querySelector("form");
@@ -39,19 +47,17 @@ window.addEventListener("load", function() {
   });
 
   //new event listener for click even on resetbtn to reveal advertisement
-  resetBtn.addEventListener("click", function() {
-    alert("This is advertisement");
-    resetBtn.setAttribute("class", "hidden");
-  });
+  resetBtn.addEventListener("click", advertisementAlert);
 
   //new event listener for click event on reset button to reset form values by changing values to null
   resetBtn.addEventListener("click", function() {
     story.setAttribute("class", "hidden");
+    resetBtn.setAttribute("class", "hidden");
     document.getElementById("person1Input").value = null;
     document.getElementById("person2Input").value = null;
     document.getElementById("animalInput").value = null;
     document.getElementById("exclamationInput").value = null;
     document.getElementById("verbInput").value = null;
     document.getElementById("nounInput").value = null;
-  })
+  });
 });
