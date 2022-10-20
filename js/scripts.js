@@ -2,6 +2,10 @@ window.addEventListener("load", function() {
   //set up an event handler for the form submission
   let form = document.querySelector("form");
 
+  //target the reset button and story element
+  let resetBtn = document.querySelector("button#reset");
+  let story = document.querySelector("div#story");
+
   form.addEventListener("submit", function(e) {
 
     //get the value for each form input
@@ -23,9 +27,30 @@ window.addEventListener("load", function() {
     document.querySelector("span#exclamation").innerText = exclamationInput;
 
     //show the story by removing class attritube
-    document.querySelector("div#story").removeAttribute("class");
+    story.removeAttribute("class");
 
     //prevent default "refresh" action for the submit event
     e.preventDefault();
   });
+
+  //new event listener for form submit event to reveal reset button
+  form.addEventListener("submit", function() {
+    resetBtn.removeAttribute("class");
+  });
+
+  //new event listener for click even on resetbtn to reveal advertisement
+  resetBtn.addEventListener("click", function() {
+    alert("This is advertisement");
+  });
+
+  //new event listener for click event on reset button to reset form values by changing values to null
+  resetBtn.addEventListener("click", function() {
+    story.setAttribute("class", "hidden");
+    document.getElementById("person1Input").value = null;
+    document.getElementById("person2Input").value = null;
+    document.getElementById("animalInput").value = null;
+    document.getElementById("exclamationInput").value = null;
+    document.getElementById("verbInput").value = null;
+    document.getElementById("nounInput").value = null;
+  })
 });
